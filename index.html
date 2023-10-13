@@ -27,7 +27,7 @@
         }).join('.');
         return `(${palavrasFormatadas}`;
       }).join('|');
-      document.getElementById("resultado").textContent = `^${regexFormatado}$: '${inputWords}'`;
+      document.getElementById("resultado").textContent = `^(${regexFormatado})$: '${inputWords}'`;
     }
   </script>
 </body>
