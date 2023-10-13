@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formatação de Palavras</title>
+</head>
+<body>
+  <h2>Insira uma ou mais palavras separadas por vírgulas:</h2>
+  <textarea id="inputWords" rows="4" cols="50"></textarea>
+  <br>
+  <button onclick="formatarPalavras()">Formatar</button>
+  <h2>Resultado:</h2>
+  <div id="resultado"></div>
+
+  <script>
+    function formatarPalavras() {
+      const inputWords = document.getElementById("inputWords").value;
+      const palavras = inputWords.split(',').map(word => word.trim()).filter(Boolean); // Dividir as palavras por vírgulas, remover espaços em branco e palavras vazias
+      const regexFormatado = palavras.map((palavra) => {
+        const palavrasFormatadas = palavra.split(' ').map((p) => {
+          const palavrasSeparadas = p.split('.').map((ps) => {
+            const primeiraLetra = ps[0];
+            const primeiraLetraMaiuscula = primeiraLetra.toUpperCase();
+            const primeiraLetraMinuscula = primeiraLetra.toLowerCase();
+            return `[${primeiraLetraMaiuscula}${primeiraLetraMinuscula}]${ps.slice(1)}`;
+          }).join('.');
+          return `${palavrasSeparadas})`;
+        }).join('.');
+        return `(${palavrasFormatadas}`;
+      }).join('|');
+      document.getElementById("resultado").textContent = `^${regexFormatado}$: '${inputWords}'`;
+    }
+  </script>
+</body>
+</html>
