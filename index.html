@@ -2,14 +2,29 @@
 <html>
 <head>
   <title>Formatação de Palavras</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
 </head>
 <body>
-  <h2>Insira uma ou mais palavras separadas por vírgulas:</h2>
-  <textarea id="inputWords" rows="4" cols="50"></textarea>
-  <br>
-  <button onclick="formatarPalavras()">Formatar</button>
-  <h2>Resultado:</h2>
-  <div id="resultado"></div>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <h2>Insira uma ou mais palavras separadas por vírgulas:</h2>
+        <textarea class="form-control" id="inputWords" rows="4"></textarea>
+        <br>
+        <button class="btn btn-primary" onclick="formatarPalavras()">Criar Regex</button>
+        <button class="btn btn-secondary" onclick="limparCampo()">Limpar</button>
+        <h2 class="mt-3">Resultado:</h2>
+        <div id="resultado" class="alert alert-info"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inclua os scripts do Bootstrap e jQuery no final do documento para carregamento mais rápido -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 
   <script>
     function formatarPalavras() {
@@ -28,6 +43,11 @@
         return `(${palavrasFormatadas}`;
       }).join('|');
       document.getElementById("resultado").textContent = `^(${regexFormatado})$: '${inputWords}'`;
+    }
+
+    function limparCampo() {
+      document.getElementById("inputWords").value = ""; // Limpa o campo de entrada
+      document.getElementById("resultado").textContent = ""; // Limpa o resultado
     }
   </script>
 </body>
