@@ -3,11 +3,15 @@
 <head>
   <title>Formatação de Palavras</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container mt-5">
     <div class="row">
       <div class="col-md-6 mx-auto">
+        <div class="text-right mb-3">
+          <button class="btn btn-dark" onclick="alternarTema()">Tema Escuro</button>
+        </div>
         <h2>Insira uma ou mais palavras separadas por vírgulas:</h2>
         <textarea class="form-control" id="inputWords" rows="4"></textarea>
         <br>
@@ -58,6 +62,11 @@
       resultado.select();
       document.execCommand("copy");
       alert("Texto copiado para a área de transferência!");
+    }
+
+    function alternarTema() {
+      const body = document.body;
+      body.classList.toggle("dark-theme");
     }
   </script>
 </body>
