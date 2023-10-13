@@ -10,7 +10,7 @@
     <div class="row">
       <div class="col-md-6 mx-auto">
         <div class="text-right mb-3">
-          <button class="btn btn-dark" onclick="alternarTema()">Tema Escuro</button>
+          <button class="btn btn-dark" id="toggleThemeButton" onclick="alternarTema()">Tema Escuro</button>
         </div>
         <h2>Insira uma ou mais palavras separadas por vírgulas:</h2>
         <textarea class="form-control" id="inputWords" rows="4"></textarea>
@@ -66,7 +66,17 @@
 
     function alternarTema() {
       const body = document.body;
+      const toggleButton = document.getElementById("toggleThemeButton");
       body.classList.toggle("dark-theme");
+      if (body.classList.contains("dark-theme")) {
+        toggleButton.textContent = "Tema Claro";
+        toggleButton.classList.remove("btn-dark");
+        toggleButton.classList.add("btn-light", "text-dark");
+      } else {
+        toggleButton.textContent = "Tema Escuro";
+        toggleButton.classList.remove("btn-light", "text-dark");
+        toggleButton.classList.add("btn-dark");
+      }
     }
   </script>
 </body>
