@@ -45,7 +45,7 @@
             const primeiraLetraMinuscula = primeiraLetra.toLowerCase();
             return `[${primeiraLetraMaiuscula}${primeiraLetraMinuscula}]${ps.slice(1)}`;
           }).join('.');
-          return `${palavrasSeparadas})`;
+          return `(${palavrasSeparadas})`;
         }).join('.');
         return `(${palavrasFormatadas}`;
       }).join('|');
