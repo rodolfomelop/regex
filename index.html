@@ -49,7 +49,7 @@
         }).join('.');
         return `(${palavrasFormatadas}`;
       }).join('|');
-      document.getElementById("resultado").value = `^(${regexFormatado})$: '${inputWords}'`;
+      document.getElementById("resultado").value = `^${regexFormatado})$: '${inputWords}'`;
     }
 
     function limparCampo() {
